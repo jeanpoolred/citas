@@ -15,3 +15,4 @@ class Appointment(db.Model):
             'appointment_time': self.appointment_time.isoformat(),
             'description': self.description
         }
+from flask_sqlalchemy import SQLAlchemy  db = SQLAlchemy() 
