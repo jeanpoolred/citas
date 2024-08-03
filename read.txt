@@ -1,0 +1,11 @@
+Documentación Básica
+
+
+
+Endpoint	        Método	    Descripción	                    Autenticación
+/appointments	    GET	        Obtener todas las citas	        Requerida
+/appointments	    POST	    Crear una nueva cita	        Requerida
+/appointments/<id>	GET	        Obtener una cita por ID	        Requerida
+/appointments/<id>	PUT	        Actualizar una cita	            Requerida
+/appointments/<id>	DELETE  	Eliminar una cita	            Requerida
+

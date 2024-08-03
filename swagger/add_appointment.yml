@@ -1,0 +1,69 @@
+swagger: '2.0'
+info:
+  title: "API de Citas"
+  description: "Documentación de la API de Citas"
+  version: "1.0.0"
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /appointments:
+    get:
+      tags:
+        - "Appointments"
+      summary: "Obtener todas las citas"
+      description: "Obtiene una lista de todas las citas"
+      responses:
+        200:
+          description: "Lista de citas"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Appointment"
+    post:
+      tags:
+        - "Appointments"
+      summary: "Crear una nueva cita"
+      description: "Crea una nueva cita"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/NewAppointment"
+      responses:
+        201:
+          description: "Cita creada"
+          schema:
+            $ref: "#/definitions/Appointment"
+definitions:
+  Appointment:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      patient_name:
+        type: "string"
+      doctor_name:
+        type: "string"
+      appointment_time:
+        type: "string"
+        format: "date-time"
+      description:
+        type: "string"
+  NewAppointment:
+    type: "object"
+    properties:
+      patient_name:
+        type: "string"
+      doctor_name:
+        type: "string"
+      appointment_time:
+        type: "string"
+        format: "date-time"
+      description:
+        type: "string"
+    required:
+      - patient_name
+      - doctor_name
+      - appointment_time
